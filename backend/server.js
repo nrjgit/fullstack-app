@@ -32,11 +32,6 @@ mongoose.connect(process.env.MONGODB_URI)
 .then(() => console.log('MongoDB Connected'))
 .catch(err => console.error('MongoDB Connection Error:', err));
 
-app.get('/', (req, res) => {
-  res.send('Server is running');
-});
-
-
 // API Route Example
 app.get('/api/hello', (req, res) => {
   res.json({ message: 'Hello from backend!' });
