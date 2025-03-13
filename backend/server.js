@@ -4,6 +4,7 @@ const path = require('path');
 const mongoose = require('mongoose'); 
 const https = require('https');
 const querystring = require('querystring');
+const MessagesSent = require('./models/messagesSent');
 
 require('dotenv').config();
 
@@ -71,3 +72,22 @@ app.get('*', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
+
+
+
+
+app.post('/messagesSent', (req, res) => { //phoneNumber, address, placeName, userID
+  let { phoneNumber, address, placeName } = req.body;
+  const messagesSent = new MessagesSent({
+    phoneNumber,
+    address,
+    placeName
+  });
+  messagesSent.save()
+  .then(result => console.log(result))
+  .catch(err => res.json(err));
+
+  console.log('message sent')
+});
+
+module.exports = app;
