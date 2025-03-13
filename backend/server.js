@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(function (req, res, next) {
   res.setHeader('Cross-Origin-Opener-Policy', 'same-origin');
   res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp');
-  res.header("Access-Control-Allow-Origin", "https://google-signin-app.onrender.com http://localhost:3000"); // Update this
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   next();
 });
