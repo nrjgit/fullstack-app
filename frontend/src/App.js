@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
 import NavBar from './components/NavBar';
 import { jwtDecode } from "jwt-decode";
-
+import FooterPage from './components/Footer';
 
 const clientId = process.env.REACT_APP_GOOGLE_CLIENT_ID;  
 function App() {
@@ -42,6 +42,9 @@ function App() {
           </div>
         )}
       </div>
+      <footer className="App-footer">
+        <FooterPage />
+      </footer>
     </GoogleOAuthProvider>
   );
 }
